@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.quiz-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.question-block {
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.dropdown-menu li {
+    position: relative;
+    display: grid;
+}
+
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
+    display: block;
+    transition: 0.5s;
+}
+
+.container-fluid {
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    width: 80%;
+    background-color: none;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+}
+
+.card-body p {
+    text-align: justify;
+    color: black;
+}
+
+.card-body a {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+}
+
+.card:hover {
+    background-color: #d9d9d9;
+    /* Slightly darker gray */
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    transform: translateY(-0.25em);
+}
+
+.login-btn {
+    color: white;
+    font-weight: bold;
+    background-color: #28a745;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    text-decoration: none;
+    color: green;
+    border-color: green;
+    background-color: aliceblue;
+}
+
+.Categories a:hover {
+    text-decoration: none;
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer span {
+    color: #f1a400;
+}
+
+.timer {
+    font-size: 24px; /* Larger font size */
+    font-weight: bold;
+    color: #28A745; /* Green color for initial state */
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #28A745;
+    width: fit-content;
+    margin: 20px auto; /* Center the timer horizontally */
+    text-align: center;
+}
+
+/* Warning state for the last minute */
+.timer.warning {
+    color: #FFC107; /* Yellow color for warning */
+    border-color: #FFC107;
+}
+
+/* Danger state for the last 10 seconds */
+.timer.danger {
+    color: #DC3545; /* Red color for danger */
+    border-color: #DC3545;
+}
+
+/* Modal styling */
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: fit-content;
+    text-align: center;
+    justify-items: center;
+}
+
+.btn-confirm, .btn-cancel {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

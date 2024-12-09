@@ -1,0 +1,101 @@
+body {
+    background-color: #f1fcfce1;
+    font-family: Arial, sans-serif;
+}
+
+
+.dropdown-menu li {
+    position: relative;
+    display: grid;
+}
+
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
+    display: block;
+    transition: 0.5s;
+}
+
+/* General Styling */
+
+header {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    color: black;
+    text-decoration: none;
+}
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.container-fluid {
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    width: 80%;
+}
+
+.card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.card-body {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card:hover {
+    background-color: #d9d9d9;
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    transform: translateY(-0.25em);
+}
+
+.card a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #001a33;
+}
+
+.learning-item a:hover {
+    color: green;
+    transform: translateY(-0.25em);
+    cursor: pointer;
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer span {
+    color: #f1a400;
+}

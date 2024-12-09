@@ -1,0 +1,199 @@
+html, body {
+    height: 100%;
+}
+
+/* Use flexbox for the body element to ensure footer sticks to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1fcfce1;
+    font-family: Arial, sans-serif;
+}
+
+/* Make sure the content area takes up the remaining space */
+.area {
+    flex: 1;
+}
+
+
+/* NAVBAR */
+
+.dropdown-menu li {
+    position: relative;
+    display: grid;
+}
+
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
+    display: block;
+    transition: 0.5s;
+}
+
+.nav-item {
+    color: black;
+    text-decoration: none;
+}
+
+/* .area{
+    min-height: 75vh;
+} */
+
+.resources-container {
+    flex: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.topic-title {
+    /* font-size: 3rem;
+    color: #333;
+    margin: 20px 0;
+    text-align: center; */
+    font-size: 3rem;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid black; /* Black border */
+    border-radius: 30px; /* Oval shape */
+    /* background-color: #f1a400; */
+}
+
+.card {
+    /* Light yellow border */
+    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+    margin: 10px 0;
+}
+
+.card:hover {
+    background-color: #f1a400;
+    /* Slightly darker gray */
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    transform: translateY(-0.25em);
+    color: white;
+}
+
+.card-header {
+    background-color: #f3c13a;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.list-group-item {
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.list-group-item:hover {
+    background-color: #f3c13a;
+    /* Yellow background on hover */
+    color: white;
+    /* White text on hover */
+}
+
+.list-group-item:hover .resource-links a {
+    color: white;
+    /* White links on hover */
+}
+
+.btn-start-quiz {
+    background-color: #f3c13a;
+    color: white;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.btn-start-quiz:hover {
+    background-color: white;
+    color: #f3c13a;
+    border-color: #f3c13a;
+}
+
+.modal-dialog {
+    max-width: 1200px;
+}
+
+.modal-body iframe {
+    width: 100%;
+    height: 600px;
+}
+
+.resource-links{
+    color: #f3c13a;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* .container-fluid {
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    width: 80%;
+
+    background-color: none;
+} */
+
+/* .card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+
+} */
+
+/* .card-body p {
+    text-align: justify;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.card-body a {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+} */
+
+/* .card-title {
+    font-size: 1.3rem;
+} */
+
+/* .card:hover {
+    background-color: #d9d9d9;
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    transform: translateY(-0.25em);
+} */
+
+.Categories a:hover {
+    text-decoration: none;
+}
+
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer span {
+    color: #f1a400;
+}

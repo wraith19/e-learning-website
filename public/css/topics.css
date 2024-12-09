@@ -1,0 +1,126 @@
+html, body {
+    height: 100%;
+}
+
+/* Use flexbox for the body element to ensure footer sticks to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1fcfce1;
+    font-family: Arial, sans-serif;
+}
+
+/* Make sure the content area takes up the remaining space */
+.area {
+    flex: 1;
+}
+
+body {
+    background-color: #f1fcfce1;
+    font-family: Arial, sans-serif;
+}
+
+
+.dropdown-menu li {
+    position: relative;
+    display: grid;
+}
+
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
+    display: block;
+    transition: 0.5s;
+}
+
+.container-fluid {
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    width: 80%;
+    background-color: none;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+
+}
+
+.card-body p {
+    text-align: justify;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.card-body a {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+}
+
+.card:hover {
+    background-color: #d9d9d9;
+    /* Slightly darker gray */
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    transform: translateY(-0.25em);
+}
+
+.Categories a:hover {
+    text-decoration: none;
+}
+
+body {
+    background-color: white;
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer span {
+    color: #f1a400;
+}
+
+.card-header {
+    height: 124px;
+}
+
+.topic-title {
+    /* font-size: 3rem;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+    justify-content: center; */
+    font-size: 3rem;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid black; /* Black border */
+    border-radius: 30px; /* Oval shape */
+    /* background-color: #f1a400; */
+    
+}
+
+.title{
+
+}
