@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMAL E-Learning</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="/css/score.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <%- include('partials/header.ejs') %>
+
+        <div class="content">
+            <div class="score-container">
+                <h3 class="score-display">Your score: <%= score %> / 10</h3>
+                <% if (score < 7) { %>
+                    <h2 class="fail-message">You failed!</h2>
+                    <br>
+                    <a href="/" class="retry-btn">Home</a>
+                <% } else { %>
+                    <h2 class="pass-message">You passed!</h2>
+                    <br>
+                    <a href="/certificate/<%= course %>/<%= level %>" class="retry-btn">Get certificate</a>
+                <% } %>
+            </div>
+        </div>
+
+        <%- include('partials/footer.ejs') %>
+
+    </div>
+
+</body>
+
+</html>

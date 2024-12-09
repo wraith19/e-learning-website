@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMAL E-Learning</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/topics.css">
+</head>
+
+<body>
+
+    <%- include('partials/header.ejs') %>
+  <div class="area">
+    <div class="title col text-center">
+      <h2 class="topic-title"><%= title %></h2>
+      </div>
+    <div class="Categories container-fluid">
+        <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-4">
+            
+          <% topics.forEach(topic => { %>
+            <div class="col mb-4">
+              <a href="<%= topic.href %>">
+                <div class="card h-100" style="background-color: white;">
+                  <h5 class="card-title card-header d-flex align-items-center justify-content-center p-3 py-4 m-3 text-light" style="background-color: <%= topic.color %>;">
+                    <%= topic.name %>
+                  </h5>
+                  <div class="card-body">
+                    <p class="card-text"><%= topic.description %></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          <% }) %>
+
+        </div>
+    </div>
+
+  </div>
+
+    <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>

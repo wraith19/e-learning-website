@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMAL E-Learning</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/profile.css" rel="stylesheet">
+</head>
+
+<body>
+  <%- include('partials/header.ejs') %>
+
+  <% 
+    function urlToTitleCase(urlStr) {
+          const specialCases = {
+            'she': 'SHE',
+            'hr': 'HR',
+            'sap': 'SAP',
+            'ms': 'MS',
+            'cctv': 'CCTV',
+            'loto': 'LOTO',
+            'chp': 'CHP',
+            'acc': 'ACC',
+            'rmhs': 'RMHS',
+            'ahp': 'AHP',
+            'wtp': 'WTP',
+            'posh': 'POSH',
+            'tpm': 'TPM',
+            'kk': 'KK',
+            'jh': 'JH',
+            'pm': 'PM',
+            'qm': 'QM',
+            'otpm': 'OTPM',
+            'dm': 'DM',
+            'efqm': 'EFQM',
+            '5s': '5S',
+            'esp': 'ESP',
+            '2d': '2D',
+            '3d': '3D',
+            'erp': 'ERP',
+            'hazop': 'HAZOP',
+            'eni': 'ENI',
+            'fad': 'FAD',
+            'pp': 'PP',
+            'eot': 'EOT',
+            'mdhs': 'MDHS',
+            'pcm': 'PCM',
+            'sg': 'SG',
+            'pug': 'PUG',
+            'id': 'ID',
+            'vfd': 'VFD',
+            'plc': 'PLC',
+            'e&i': 'E&I',
+            'grn': 'GRN',
+            'hris': 'HRIS',
+            'e&t': 'E&T',
+            'dmaic': 'DMAIC',
+            'opl': 'OPL',
+            'fd': 'FD',
+          };
+
+          return urlStr
+            .split(/[\s-]+/) // Split by spaces or hyphens
+            .map(word => {
+              const lowercaseWord = word.toLowerCase();
+              return specialCases[lowercaseWord] || (word.charAt(0).toUpperCase() + lowercaseWord.slice(1));
+            })
+            .join(' '); // Join words back with spaces
+        }
+   %>
+
+    <div class="prof-body container">
+      <!-- Profile Section -->
+      <div class="section-container d-flex align-items-center">
+        <div class="profile-img me-4" data-bs-toggle="modal" data-bs-target="#profileModal">
+          <% if (user.profilephoto) { %>
+            <img src="/profile-photo/<%= user.id %>" alt="Profile Picture" id="profile-pic" class="rounded-circle"
+              height="150" width="150">
+          <% } else { %>
+            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+              style="height: 150px; width: 150px; font-size: 50px;">
+              <%= user.name.charAt(0) %>
+            </div>
+          <% } %>
+        </div>
+        <div class="profile-details">
+          <h2><%= user.name %></h2>
+          <p>Department: <%= user.department %></p>
+          <p>Designation: <%= user.designation %></p>
+        </div>
+
+      </div>
+
+      <!-- Certificates Section -->
+      <div class="section-container mt-5">
+        <h3>Completed Courses: <%= completedCourses.length %></h3>
+        <% if (completedCourses.length> 0) { %>
+          <ul class="list-group mt-3">
+            <% completedCourses.forEach(courses => { %>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><strong><%= urlToTitleCase(courses.course) %></strong> - <%= urlToTitleCase(courses.level) %></span>
+                <span class="text-muted">(Completed on: <%= courses.created_at %>)</span>
+                <a href="/certificate/<%= courses.course %>/<%= courses.level %>"
+                  class="btn btn-sm btn-primary">View Certificate</a>
+              </li>
+              <% }); %>
+          </ul>
+        <% } else { %>
+          <p>You haven't started any courses yet. Begin your learning journey today!</p>
+        <% } %>
+      </div>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
+
+      <!-- Modal for DP edit/delete -->
+      <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="profileModalLabel">Profile Picture</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+              <% if (user.profilephoto) { %>
+                <img src="/profile-photo/<%= user.id %>" alt="Profile Picture" id="profile-pic" class="rounded-circle"
+                  height="150" width="150">
+                <% } else { %>
+                  <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                    style="height: 150px; width: 150px; font-size: 50px;">
+                    <%= user.name.charAt(0) %>
+                  </div>
+                  <% } %>
+
+                    <div class="modal-icons mt-3">
+                      <button class="bg-success rounded" onclick="uploadProfilePic()">Upload</button>
+                    </div>
+
+                    <!-- Form to upload the profile picture -->
+                    <form action="/profile/upload-photo" method="POST" enctype="multipart/form-data" id="uploadForm">
+                      <input type="file" id="fileInput" class="d-none" name="profilePhoto" accept="image/*"
+                        onchange="handleFileUpload(event)">
+                      <button type="submit" id="submitProfileForm" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const certificates = document.querySelectorAll('.certificate-card');
+          certificates.forEach(card => {
+            card.addEventListener('click', () => showCertificate(card.dataset.id));
+          });
+        });
+
+        function uploadProfilePic() {
+          document.getElementById('fileInput').click();
+        }
+
+        function handleFileUpload(event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const newPicUrl = e.target.result;
+              document.getElementById('profile-pic').src = newPicUrl;
+              document.getElementById('modal-profile-pic').src = newPicUrl;
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+
+        function showCertificate(id) {
+          document.querySelectorAll('.certificate-details').forEach(detail => detail.style.display = 'none');
+          document.getElementById(id).style.display = 'block';
+        }
+      </script>
+</body>
+
+</html>

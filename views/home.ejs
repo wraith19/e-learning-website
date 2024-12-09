@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMAL E-Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+     
+    <% 
+        const navLinks = [
+            { href: "/", text: "Home", active: true },
+            { href: "/login", text: "Login" }
+        ];
+    %>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="images/logo.png" alt="Sarda Metals Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <% navLinks.forEach(link => { %>
+                        <li class="nav-item">
+                            <a class="nav-link btn" aria-current="page" href="<%= link.href %>"><%= link.text %></a>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="learningCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <% 
+                const carouselItems = [ 
+                    { img: "carousel-1.jpg", alt: "Learning 1", title: "Power Up Your Knowledge", desc: "Learn about Power Plant Operations & Maintenance.", active: true }, 
+                    { img: "FAD Main.jpg", alt: "Learning 2", title: "Advancing Ferro Alloy Expertise", desc: "Learn about FAD Operations and Maintenance." }, 
+                    { img: "Business Excellence main (1).png", alt: "Learning 3", title: "Business Excellence", desc: "Strategy | Leadership | Innovation | Breakthrough." }, 
+                    { img: "MWP.png", alt: "Learning 4", title: "Innovation Meets Insulation ", desc: "Empowering the future through cutting-edge practices." }
+                ]; 
+            %>
+
+            <% carouselItems.forEach((item, index)=> { %>
+                <div class="carousel-item <%= item.active ? 'active' : '' %>">
+                    <img src="images/<%= item.img %>" class="d-block w-100" alt="<%= item.alt %>">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>
+                            <%= item.title %>
+                        </h5>
+                        <p>
+                            <%= item.desc %>
+                        </p>
+                    </div>
+                </div>
+            <% }) %>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#learningCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#learningCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section container px-4">
+        <div class="row gx-5 justify-content-center d-flex">
+            <div class="col-lg-6 col-md-12 text-center align-middle">
+                <div class="learning-logo" >
+                    <img src="/images/E-Learning main logo.jpg" style="object-fit: fill;" height="300px" alt="logo">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="get-started p-3">
+                    <p class="fw-bold">
+                        Our e-learning platform offers a comprehensive set of courses that are tailored to enhance your skills in power plant operations, ferro manufacturing, and much more. 
+                        Start your learning journey with us today and accelerate your professional growth. Our courses are designed to elevate your career and drive progress in the metal industry. 
+                    </p>
+                    <a class="btn fw-bold" id="get-started" href="/login">Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="currentColor"
+                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+</body>
+
+</html>

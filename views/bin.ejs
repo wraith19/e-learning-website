@@ -1,0 +1,24 @@
+<div class="section-container">
+    <h3>Certificates</h3>
+    <div class="certificate-grid">
+        <% user.certificates.forEach((certificate, index)=> { %>
+            <div class="certificate-card" data-id="certificate<%= index %>">
+                <%= certificate.courseName %>
+            </div>
+        <% }); %>
+    </div>
+
+    <% user.certificates.forEach((certificate, index)=> { %>
+        <div id="certificate<%= index %>" class="certificate-details">Details about <%= certificate.courseName %>
+            Certificate...
+        </div>
+    <% }); %>
+</div>
+
+<div class="section-container">
+    <div class="course-count">Courses Completed: 
+        <span id="course-count">
+            <%= user.certificates.length %>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+<header>
+
+<% 
+    const categories = {
+        technical: { 
+            title: "Technical" ,
+            href: "/main/technical" , 
+            subcategories: [
+                { name: "Power Plant Operations" , link: "/main/technical/power-plant-operations" }, 
+                { name: "Ferro Operations" , link: "/main/technical/ferro-operations" }, 
+                { name: "Rockwool Operations" , link: "/main/technical/rockwool-operations" }, 
+                { name: "Mech Maintenance" , link: "/main/technical/mechanical-maintenance" }, 
+                { name: "Mechanical Maintenance Of FAD" , link: "/main/technical/mechanical-maintenance-of-fad" }, 
+                { name: "Mechanical Maintenance Common" , link: "/main/technical/mechanical-maintenance-common" }, 
+                { name: "E&I Maintenance Of PP" , link: "/main/technical/e&i-maintenance-of-pp" }, 
+                { name: "E&I Maintenance Of FAD" , link: "/main/technical/e&i-maintenance-of-fad" }, 
+                { name: "E&I Maintenance Common" , link: "/main/technical/e&i-maintenance-common" }, 
+                { name: "Civil" , link: "/main/technical/civil" }, 
+                { name: "Drawings" , link: "/main/technical/drawings" }, 
+                { name: "Information Technology" , link: "/main/technical/information-technology" }, 
+                { name: "Projects" , link: "/main/technical/projects" } 
+            ] 
+        }, 
+        functional: { 
+            title: "Functional" ,
+            href: "/main/functional" , 
+            subcategories: [ 
+                { name: "Human Resources" , link: "/main/functional/hr" }, 
+                { name: "Finance & Accounts" , link: "/main/functional/finance-&-accounts" }, 
+                { name: "Marketing" , link: "/main/functional/marketing" }, 
+                { name: "Raw Material Procurement" , link: "/main/functional/raw-material-procurement" }, 
+                { name: "Stores" ,  link: "/main/functional/stores" }, 
+                { name: "Purchase" , link: "/main/functional/purchase" } 
+            ]
+        }, 
+        leadership: { 
+            title: "Leadership" , 
+            href: "/main/leadership" , 
+            subcategories: [ 
+                { name: "Planning & Organizing" , link: "/main/leadership/planning-&-organizing" }, 
+                { name: "Strategic Thinking" , link: "/main/leadership/strategic-thinking" }, 
+                { name: "Problem Solving & Decision Making" , link: "/main/leadership/problem-solving-&-decision-making" }, 
+                { name: "Innovation" , link: "/main/leadership/innovation" }, 
+                { name: "Team Work & Collaboration" , link: "/main/leadership/team-work-&-collaboration" }, 
+                { name: "Getting Results & Managing Performance" , link: "/main/leadership/getting-results-&-managing-performance" }, 
+                { name: "Coaching & Mentoring" , link: "/main/leadership/coaching-&-mentoring" }, 
+                { name: "Customer Focus" , link: "/main/leadership/customer-focus" }, 
+                { name: "Flexibility & Adaptability" , link: "/main/leadership/flexibility-&-adaptability" }, 
+                { name: "Operational Excellence" , link: "/main/leadership/operational-excellence" }, 
+                { name: "Negotiation Skills" , link: "/main/leadership/negotiation-skills" }, 
+                { name: "Communication Skills" , link: "/main/leadership/communication-skills" }, 
+                { name: "Emotional Resilience" , link: "/main/leadership/emotional-resilience" }, 
+                { name: "Continuous Improvement" , link: "/main/leadership/continuous-improvement" }, 
+                { name: "Personal Initiative & Motivation" , link: "/main/leadership/personal-initiative-&-motivation" }, 
+                { name: "POSH" , link: "/main/leadership/posh" }, 
+                { name: "Corporate Etiquette" , link: "/main/leadership/corporate-etiquette" }, 
+                { name: "Interpersonal Skills" , link: "/main/leadership/interpersonal-skills" }, 
+                { name: "Stress Management" , link: "/main/leadership/stress-management" }, 
+                { name: "Change Management" , link: "/main/leadership/change-management" }, 
+                { name: "Wellness" , link: "/main/leadership/wellness" }, 
+                { name: "Work Ethics" , link: "/main/leadership/work-ethics" }, 
+                { name: "Public Speaking" , link: "/main/leadership/public-speaking" } 
+            ] 
+        },
+        she: { 
+            title: "Safety Health & Environment" ,
+            href: "/main/safety-health-&-environment" , 
+            subcategories: [ 
+                { name: "Safety" , link: "/main/safety-health-&-environment/safety" }, 
+                { name: "Environment" , link: "/main/safety-health-&-environment/environment" }, 
+                { name: "Occupational Health" , link: "/main/safety-health-&-environment/occupational-health" } 
+            ] 
+        },
+        be: { 
+            title: "Business Excellence" , 
+            href: "/main/business-excellence" , 
+            subcategories: [ 
+                { name: "TPM" , link: "/main/business-excellence/tpm" }, 
+                { name: "EFQM" , link: "/main/business-excellence/efqm" }, 
+                { name: "6 Sigma" , link: "/main/business-excellence/6-sigma" }, 
+                { name: "Lean Manufacturing" , link: "/main/business-excellence/lean-manufacturing" }, 
+                { name: "5S" , link: "/main/business-excellence/5s" },
+                { name: "Kaizen & OPL" , link: "/main/business-excellence/kaizen-&-opl" }, 
+                { name: "Poke Yoke" , link: "/main/business-excellence/poke-yoke" }, 
+                { name: "7 Types Of Abnormalities" , link: "/main/business-excellence/7-types-of-abnormalities" }, 
+            ] 
+        },
+        gk: { 
+            title: "General Knowledge" , 
+            href: "main/general-knowledge" , 
+            subcategories: [ 
+
+            ] 
+        } 
+    }; 
+%>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="/images/logo.png" height="70" width="150" alt="Company Logo">
+    </a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown w-50">
+                <a class="nav-link dropdown-toggle" style="color: black; cursor: pointer;" role="button" id="navbarDropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <ul class="dropdown-menu rounded-lg" aria-labelledby="navbarDropdownMenuLink">
+                    <% for (const key in categories) { %>
+                        <li>
+                            <a class="dropdown-item" href=<%=categories[key].href %>><%= categories[key].title
+                                    %> &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <% categories[key].subcategories.forEach(function(subcategory) { %>
+                                    <li>
+                                        <a class="dropdown-item" href="<%= subcategory.link %>">
+                                            <%= subcategory.name %>
+                                        </a>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        </li>
+                    <% } %>
+                </ul>
+            </li>
+        </ul>
+            <a class="nav-link" style="color: black;" href="/">Home</a>
+
+            <!-- User Profile Dropdown -->
+            <div class="nav-item dropdown d-flex">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" style="color: black; cursor: pointer;" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <% if (user.profilephoto) { %>
+                        <img src="/profile-photo/<%= user.id %>" class="rounded-circle d-flex" height="40" width="40" alt="Profile Photo">
+                    <% } else { %>
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                            style="height: 40px; width: 40px; font-size: 20px;">
+                            <%= user.name.charAt(0) %> <!-- Display first letter of user's name -->
+                        </div>
+                    <% } %>
+                    <span class="text-dark">
+                        <%= user.name %>
+                    </span>
+                </a>
+                <div class="dropdown-menu " aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="/profile">My Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="/logout">Logout</a>
+                </div>
+            </div>
+    </div>
+</nav>
+
+</header>

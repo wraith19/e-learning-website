@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>SMAL E-Learning</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- HEADER SECTION -->
+
+    <%- include('partials/header.ejs') %>
+
+    <!-- Start learning section -->
+
+    <div class="container-fluid mt-2 gradient-custom">
+        <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-3">
+
+            <% 
+                const trainings = [ 
+                    { href: "/main/technical", img: "Technical final.png", title: "Technical" }, 
+                    { href: "/main/functional", img: "Functional Final.png", title: "Functional" }, 
+                    { href: "/main/leadership", img: "leadership  1.png", title: "Leadership" }, 
+                    { href: "/main/safety-health-&-environment", img: "SHE Final.png", title: "Safety, Health & Environment" },
+                    { href: "/main/business-excellence", img: "Business Excellence Final.png", title: "Business Excellence" }, 
+                    { href: "/main/general-knowledge", img: "General Knowledge Final.jpg", title: "General Knowledge" } 
+                ]; 
+            %>
+
+            <% trainings.forEach(training=> { %>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <a class="card-text" href="<%= training.href %>">
+                            <img src="/images/<%= training.img %>" class="card-img-top img-fluid" alt="...">
+                            <div class="card-body align-items-center">
+                                <%= training.title %>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+
+        </div>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>
